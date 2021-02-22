@@ -1,0 +1,88 @@
+"C:\Yousra\Masters\CS7641 - MachineLearning\Assignment1\venv\Scripts\python.exe" "C:/Yousra/Masters/CS7641 - MachineLearning/Assignment1/main.py"
+******************************************************
+
+DecisionTree
+
+DIABETES
+func: train took: 0.011 sec
+func: predict took: 0.005 sec
+0.95 f1_macro score with a standard deviation of 0.03
+No handles with labels found to put in legend.
+No handles with labels found to put in legend.
+
+PD_SPEECH_FEATURES
+func: train took: 0.23695 sec
+func: predict took: 0.01904 sec
+0.71 f1_macro score with a standard deviation of 0.05
+No handles with labels found to put in legend.
+No handles with labels found to put in legend.
+******************************************************
+
+SupportVectorMachines
+
+DIABETES
+func: train took: 0.025 sec
+func: predict took: 0.01301 sec
+0.97 f1_macro score with a standard deviation of 0.02
+No handles with labels found to put in legend.
+No handles with labels found to put in legend.
+
+PD_SPEECH_FEATURES
+func: train took: 0.224 sec
+func: predict took: 0.08277 sec
+0.78 f1_macro score with a standard deviation of 0.03
+No handles with labels found to put in legend.
+No handles with labels found to put in legend.
+******************************************************
+
+KNearestNeighbor
+
+DIABETES
+func: train took: 0.017 sec
+func: predict took: 0.012 sec
+0.93 f1_macro score with a standard deviation of 0.04
+No handles with labels found to put in legend.
+No handles with labels found to put in legend.
+
+PD_SPEECH_FEATURES
+func: train took: 0.10399 sec
+func: predict took: 0.18704 sec
+0.78 f1_macro score with a standard deviation of 0.02
+No handles with labels found to put in legend.
+No handles with labels found to put in legend.
+******************************************************
+
+AdaBoost
+
+DIABETES
+func: train took: 0.26304 sec
+func: predict took: 0.021 sec
+0.96 f1_macro score with a standard deviation of 0.02
+No handles with labels found to put in legend.
+No handles with labels found to put in legend.
+
+PD_SPEECH_FEATURES
+func: train took: 11.56928 sec
+func: predict took: 0.054 sec
+0.80 f1_macro score with a standard deviation of 0.04
+No handles with labels found to put in legend.
+No handles with labels found to put in legend.
+******************************************************
+
+NeuralNetwork
+
+DIABETES
+func: train took: 0.10903 sec
+func: predict took: 0.00797 sec
+0.97 f1_macro score with a standard deviation of 0.02
+No handles with labels found to put in legend.
+No handles with labels found to put in legend.
+
+PD_SPEECH_FEATURES
+func: train took: 8.93725 sec
+func: predict took: 0.02099 sec
+0.81 f1_macro score with a standard deviation of 0.03
+No handles with labels found to put in legend.
+No handles with labels found to put in legend.
+
+Process finished with exit code 0

@@ -1,0 +1,130 @@
+"C:\Yousra\Masters\CS7641 - MachineLearning\Assignment1\venv\Scripts\python.exe" "C:/Yousra/Masters/CS7641 - MachineLearning/Assignment1/main.py"
+Extract best hyper parameters for each classifier and dataset
+******************************************************
+
+DecisionTree
+
+DIABETES
+Best parameters on training set
+
+{'classifier__criterion': 'entropy', 'classifier__max_depth': 7}
+
+Classification Report
+              precision    recall  f1-score   support
+
+    Negative       0.92      0.92      0.92        52
+    Positive       0.96      0.96      0.96       104
+
+    accuracy                           0.95       156
+   macro avg       0.94      0.94      0.94       156
+weighted avg       0.95      0.95      0.95       156
+
+
+func: get_optimal_grid_search_hyper_parameters took: 15.01031 sec
+{'criterion': 'entropy', 'max_depth': 7}
+
+PD_SPEECH_FEATURES
+Best parameters on training set
+
+{'classifier__criterion': 'gini', 'classifier__max_depth': 3}
+
+Classification Report
+              precision    recall  f1-score   support
+
+           0       0.74      0.46      0.56        68
+           1       0.80      0.93      0.86       159
+
+    accuracy                           0.79       227
+   macro avg       0.77      0.69      0.71       227
+weighted avg       0.78      0.79      0.77       227
+
+
+func: get_optimal_grid_search_hyper_parameters took: 163.71869 sec
+{'criterion': 'gini', 'max_depth': 3}
+******************************************************
+
+SupportVectorMachines
+
+DIABETES
+Best parameters on training set
+
+{'classifier__C': 1.0, 'classifier__degree': 1, 'classifier__gamma': 'scale', 'classifier__kernel': 'rbf'}
+
+Classification Report
+              precision    recall  f1-score   support
+
+    Negative       0.96      0.92      0.94        52
+    Positive       0.96      0.98      0.97       104
+
+    accuracy                           0.96       156
+   macro avg       0.96      0.95      0.96       156
+weighted avg       0.96      0.96      0.96       156
+
+
+func: get_optimal_grid_search_hyper_parameters took: 647.51525 sec
+{'C': 1.0, 'degree': 1, 'gamma': 'scale', 'kernel': 'rbf'}
+
+PD_SPEECH_FEATURES
+Best parameters on training set
+
+{'classifier__C': 100000.0, 'classifier__degree': 1, 'classifier__gamma': 'auto', 'classifier__kernel': 'rbf'}
+
+Classification Report
+              precision    recall  f1-score   support
+
+           0       0.87      0.59      0.70        68
+           1       0.85      0.96      0.90       159
+
+    accuracy                           0.85       227
+   macro avg       0.86      0.78      0.80       227
+weighted avg       0.85      0.85      0.84       227
+
+
+func: get_optimal_grid_search_hyper_parameters took: 161.54733 sec
+{'C': 100000.0, 'degree': 1, 'gamma': 'auto', 'kernel': 'rbf'}
+******************************************************
+
+KNearestNeighbor
+
+DIABETES
+Best parameters on training set
+
+{'classifier__n_neighbors': 3, 'classifier__p': 2}
+
+Classification Report
+              precision    recall  f1-score   support
+
+    Negative       0.86      0.94      0.90        52
+    Positive       0.97      0.92      0.95       104
+
+    accuracy                           0.93       156
+   macro avg       0.91      0.93      0.92       156
+weighted avg       0.93      0.93      0.93       156
+
+
+func: get_optimal_grid_search_hyper_parameters took: 8.39011 sec
+{'n_neighbors': 3, 'p': 2}
+
+PD_SPEECH_FEATURES
+Best parameters on training set
+
+{'classifier__n_neighbors': 3, 'classifier__p': 1}
+
+Classification Report
+              precision    recall  f1-score   support
+
+           0       0.87      0.69      0.77        68
+           1       0.88      0.96      0.92       159
+
+    accuracy                           0.88       227
+   macro avg       0.87      0.82      0.84       227
+weighted avg       0.88      0.88      0.87       227
+
+
+func: get_optimal_grid_search_hyper_parameters took: 191.33738 sec
+{'n_neighbors': 3, 'p': 1}
+******************************************************
+
+AdaBoost
+
+DIABETES

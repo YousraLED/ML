@@ -1,0 +1,56 @@
+{
+   "DecisionTree_DIABETES":{
+      "criterion":"entropy",
+      "max_depth":7
+   },
+   "DecisionTree_PD_SPEECH_FEATURES":{
+      "criterion":"gini",
+      "max_depth":3
+   },
+   "SupportVectorMachines_DIABETES":{
+      "C":1.0,
+      "degree":1,
+      "gamma":"scale",
+      "kernel":"rbf"
+   },
+   "SupportVectorMachines_PD_SPEECH_FEATURES":{
+      "C":100000,
+      "degree":1,
+      "gamma":"auto",
+      "kernel":"rbf"
+   },
+   "KNearestNeighbor_DIABETES":{
+      "n_neighbors":3,
+      "p":2
+   },
+   "KNearestNeighbor_PD_SPEECH_FEATURES":{
+      "n_neighbors":3,
+      "p":1
+   },
+      "NeuralNetwork_DIABETES":{
+      "activation":"tanh",
+      "alpha":0.0001,
+      "hidden_layer_sizes": [8, 8],
+      "learning_rate_init": 0.05,
+      "max_iter":4000,
+      "solver":"adam"
+   },
+   "NeuralNetwork_PD_SPEECH_FEATURES":{
+      "activation":"tanh",
+      "alpha":0.01,
+      "hidden_layer_sizes": 100,
+      "learning_rate_init":1,
+      "max_iter":4000,
+      "solver":"sgd"
+   },
+   "AdaBoost_DIABETES":{
+      "algorithm":"SAMME",
+      "learning_rate":0.5,
+      "n_estimators":100
+   },
+   "AdaBoost_PD_SPEECH_FEATURES":{
+      "algorithm":"SAMME",
+      "learning_rate":0.5,
+      "n_estimators":100
+   }
+}
