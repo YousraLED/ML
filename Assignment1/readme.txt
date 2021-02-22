@@ -8,3 +8,4 @@
             - Runs the different experiments for each algoruthm and dataset
         3- get_optimal_classifier_hyper_parameters
             - Gets the optimal hyperparameters for each dataset/classifier combo using grid search
+  * Code snippets that were copied have been referenced within the code 
