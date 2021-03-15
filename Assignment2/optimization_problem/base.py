@@ -324,9 +324,17 @@ class BaseOptimizationProblem:
                                             f.is_dir()]
         print(optimization_problem_directories)
 
-        all_algorithms_best_fitness = pd.DataFrame()
-        all_algorithms_durations = pd.DataFrame()
-        all_algorithms_fitness_curves = pd.DataFrame()
+        algorithm_optimals = {
+            'random_hill_climb': 'default',
+            'simulated_annealing': 'ce=0.9',
+            'genetic_algorithm': 'mutation_probs=0.9',
+            'mimic': 'keep_pct=0.9'
+        }
+
+        algorithms = list(algorithm_optimals.keys())
+        all_algorithms_best_fitness = pd.DataFrame(columns=algorithms)
+        all_algorithms_durations = pd.DataFrame(columns=algorithms)
+        all_algorithms_fitness_curves = pd.DataFrame(columns=algorithms)
 
         for optimization_problem_directory in optimization_problem_directories:
             optimization_problem = optimization_problem_directory.split("\\")[1]
@@ -351,29 +359,41 @@ class BaseOptimizationProblem:
                 algorithm_best_fitness_data = algorithm_best_fitness_data[columns]
 
                 best_fitnesses = algorithm_best_fitness_data.pivot_table('best_fitness', ['size'], 'settings')
-                print(best_fitnesses)
-                ax = best_fitnesses.plot(title=f'{optimization_problem} - {algorithm}')
-                ax.set_xlabel("Size")
-                ax.set_ylabel("Fitness")
-                fig = ax.get_figure()
-                fig.savefig(rf"{directory}\0-all_fitness_vs_size_curve.png")
+                all_algorithms_best_fitness[algorithm] = best_fitnesses[algorithm_optimals[algorithm]]
+
 
                 durations = algorithm_best_fitness_data.pivot_table('duration', ['size'], 'settings')
-                print(durations)
-                ax = durations.plot(title=f'{optimization_problem} - {algorithm}')
-                ax.set_xlabel("Size")
-                ax.set_ylabel("Duration (sec)")
-                fig = ax.get_figure()
-                fig.savefig(rf"{directory}\1-all_duration_vs_size_curve.png")
+                all_algorithms_durations[algorithm] = durations[algorithm_optimals[algorithm]]
 
                 algorithm_fitness_curve_data = pd.read_csv(filepath_fitness_curve, sep=',')
                 columns_to_exclude = ['algorithm_name', 'size']
                 columns = algorithm_fitness_curve_data.columns
                 columns = [column for column in columns if column not in columns_to_exclude]
                 algorithm_fitness_curve_data = algorithm_fitness_curve_data[columns]
-                ax = algorithm_fitness_curve_data.plot(title=f'{optimization_problem} - {algorithm}')
-                ax.set_xlabel("Iterations")
-                ax.set_ylabel("Fitness")
+                all_algorithms_fitness_curves[algorithm] = algorithm_fitness_curve_data[algorithm_optimals[algorithm]]
 
-                fig = ax.get_figure()
-                fig.savefig(rf"{directory}\2-all_fitness_curve.png")
+            print('all_algorithms_best_fitness')
+            print(all_algorithms_best_fitness)
+            print('all_algorithms_durations')
+            print(all_algorithms_durations)
+            print('all_algorithms_fitness_curves')
+            print(all_algorithms_fitness_curves)
+
+            directory = rf"{self.output_directory}\{optimization_problem}"
+            ax = all_algorithms_best_fitness.plot(title=f'Fitness vs Size')
+            ax.set_xlabel("Size")
+            ax.set_ylabel("Fitness")
+            fig = ax.get_figure()
+            fig.savefig(rf"{directory}\0-all_fitness_vs_size_curve.png")
+
+            ax = all_algorithms_durations.plot(title=f'Duration vs Size')
+            ax.set_xlabel("Size")
+            ax.set_ylabel("Duration (sec)")
+            fig = ax.get_figure()
+            fig.savefig(rf"{directory}\1-all_duration_vs_size_curve.png")
+
+            ax = all_algorithms_fitness_curves.plot(title=f'Fitness vs Iterations')
+            ax.set_xlabel("Iterations")
+            ax.set_ylabel("Fitness")
+            fig = ax.get_figure()
+            fig.savefig(rf"{directory}\2-all_fitness_curve.png")

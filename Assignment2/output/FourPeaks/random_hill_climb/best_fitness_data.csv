@@ -1,0 +1,11 @@
+algorithm_name,size,settings,best_fitness,duration
+random_hill_climb,10,default,12.0,0.0043133
+random_hill_climb,20,default,20.0,0.0129833
+random_hill_climb,30,default,24.3,0.0136633
+random_hill_climb,40,default,8.7,0.0083333
+random_hill_climb,50,default,12.0,0.0093267
+random_hill_climb,60,default,8.3,0.0106667
+random_hill_climb,70,default,5.7,0.0066533
+random_hill_climb,80,default,6.0,0.0066767
+random_hill_climb,90,default,9.0,0.0079933
+random_hill_climb,100,default,10.0,0.0059967

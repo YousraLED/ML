@@ -1,3 +1,5 @@
+from pathlib import Path
+
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 import six
@@ -12,6 +14,7 @@ import matplotlib.pyplot as plt
 from time import time
 
 
+#Adapted from https://mlrose.readthedocs.io/en/stable/source/tutorial3.html
 
 root_directory = os.path.dirname(__file__)
 file_path = fr"{root_directory}\datasets\pd_speech_features\pd_speech_features.csv"
@@ -33,6 +36,9 @@ X_test_scaled = scaler.transform(X_test)
 
 
 algorithms = ['gradient_descent', 'random_hill_climb', 'simulated_annealing', 'genetic_alg']
+
+directory = rf'output\part1'
+Path(directory).mkdir(parents=True, exist_ok=True)
 
 for algorithm in algorithms:
     print(algorithm)
@@ -61,8 +67,18 @@ for algorithm in algorithms:
 
     fitness_curve = nn_model1.fitness_curve
 
-    plt.plot(fitness_curve)
-    plt.show()
+    fig = plt.figure()
+    if len(fitness_curve.shape) == 1:
+        plt.plot(fitness_curve[1:])
+    else:
+        plt.plot(fitness_curve[1:, 0])
+
+    fig.suptitle(algorithm)
+    plt.xlabel('Iterations')
+    plt.ylabel('Fitness')
+
+    fig.savefig(rf"{directory}\fitness_curve-{algorithm}.png")
+    plt.close()
 
     print(y_train_accuracy)
 
